@@ -261,6 +261,10 @@ var customers = transactions.map(transactions => transactions.customer)
 
 var uniqueCustomers = customers.filter(customers => customers != undefined)
 
+// var noRepeat = uniqueCustomers.filter(uniqueCustomers => uniqueCustomers.forEach(function(){
+//
+// }))
+
 // console.log(customers)
 
 console.log( 'The unique customers are:', uniqueCustomers);
@@ -291,8 +295,8 @@ console.log( 'The unique customers are:', uniqueCustomers);
 var bigSpenders = [];
 
 transactions.forEach(function(transaction){
-  if (transaction.items.length > 5){
-    
+  if (transaction.items.length >= 5){
+
     bigSpenders.push(transaction.customer+ ' with a purchase of: '+ transaction.items.length+ ' items')
 
   }
@@ -310,9 +314,22 @@ console.log( 'The "big spenders" are:', bigSpenders );
   HINT(S):
   - Transactions don't have 'prices', but their 'items' do!
 */
-var sumSales;
+var numItems = transactions[0].items
+var i = 0;
+  // console.log(numItems)
 
-console.log( 'The sum of all sales is:', sumSales );
+  numItems.forEach(function(item){
+    // console.log(item.price)
+    i += item.price
+  })
+
+// console.log(i)
+
+var sumSales = i
+
+// console.log(transactions[0].items)
+
+console.log( 'The sum of all sales is: $', sumSales );
 
 
 // --------------------------------------------------
@@ -327,8 +344,19 @@ console.log( 'The sum of all sales is:', sumSales );
 */
 
 var sumPurchases;
+var i = 0;
 
-console.log( 'The sum of all purhcases is:', sumPurchases );
+
+for(var i = 0; i < purchases.length; i++){
+  console.log(purchases[i].items)
+}
+// purchases.forEach(function(item){
+//     console.log(item.items)
+// })
+
+// console.log(purchases)
+
+console.log( 'The sum of all purchases is:', sumPurchases );
 
 
 // --------------------------------------------------
